@@ -10,24 +10,24 @@ public class StylistTest {
     assertEquals(Stylist.all().size(), 0);
   }
 
-  // @Test
-  // public void all_savesIntoDatabase_true() {
-  // Restaurant myRestaurant = new Restaurant("Chipotle", "Texmex", 5, true, "5-10", "SW", "SW 3rd Ave", "212-555-NYC-calling", "wwww.chipotle.com");
-  // myRestaurant.save();
-  // assertEquals(Restaurant.all().get(0).getName(), "Chipotle");
-  // }
-  //
-  // @Test
-  // public void restaurants_instantiatesCorrectly_true() {
-  //   Restaurant test = new Restaurant("Chipotle", "Texmex", 5, true, "5-10", "SW", "SW 3rd Ave", "212-555-NYC-calling", "wwww.chipotle.com");
-  //   assertEquals(true, test instanceof Restaurant);
-  // }
-  //
-  // @Test
-  //   public void find_findsRestaurantInDatabase_true() {
-  //     Restaurant myRestaurant = new Restaurant("Chipotle", "Texmex", 5, true, "5-10", "SW", "SW 3rd Ave", "212-555-NYC-calling", "wwww.chipotle.com");
-  //     myRestaurant.save();
-  //     Restaurant savedRestaurant = Restaurant.find(myRestaurant.getId());
-  //     assertEquals(savedRestaurant.getName(), "Chipotle");
-  //   }
+  @Test
+  public void all_savesIntoDatabase_true() {
+  Stylist newStylist = new Stylist("Shane");
+  newStylist.save();
+  assertEquals(Stylist.all().get(0).getNameStylist(), "Shane");
+  }
+
+  @Test
+  public void stylists_instantiatesCorrectly_true() {
+    Stylist test = new Stylist("Shane");
+    assertEquals(true, test instanceof Stylist);
+  }
+
+  @Test
+    public void find_findsStylistInDatabase_true() {
+      Stylist newStylist = new Stylist("Kate");
+      newStylist.save();
+      Stylist savedStylist = Stylist.find(newStylist.getId());
+      assertEquals(savedStylist.getNameStylist(), "Kate");
+    }
 }
