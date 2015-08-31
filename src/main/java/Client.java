@@ -26,6 +26,7 @@ public class Client {
     return id;
   }
 
+  //add new client
   public void save() {
   try(Connection con = DB.sql2o.open()) {
     String sql = "INSERT INTO clients (name_client, stylist_id) VALUES (:name_client, :stylist_id)";
@@ -44,6 +45,7 @@ public class Client {
     }
   }
 
+  //find client by id
   public static Client find(int id) {
   try(Connection con = DB.sql2o.open()) {
     String sql = "SELECT * FROM clients where id=:id";
@@ -54,6 +56,7 @@ public class Client {
     }
   }
 
+  //remove client by id
   public static void removeClient(int clientId) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "DELETE FROM clients WHERE id=:id;";
@@ -62,5 +65,16 @@ public class Client {
         .executeUpdate();
     }
   }
+
+  //show stylist name
+  public static String stylistName(int stylist_id) {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "SELECT name_stylist FROM stylists where id=:id";
+    return con.createQuery(sql)
+      .addParameter("id", stylist_id)
+      .executeAndFetchFirst(String.class);
+    }
+  }
+
 
 }
