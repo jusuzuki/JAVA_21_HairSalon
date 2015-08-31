@@ -24,22 +24,23 @@ public class AppIntegrationTest extends FluentTest {
     assertThat(pageSource()).contains("HairSalon");
   }
 
-  // @Test
-  // public void taskIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Add a new task"));
-  //   fill("#description").with("Mow the lawn");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Your task has been saved.");
-  // }
+  @Test
+  public void stylistIsAddedCorrectlyTest() {
+    goTo("http://localhost:4567/");
+    fill("#newStylistName").with("Halsey");
+    submit("#newStylist");
+    assertThat(pageSource()).contains("Halsey");
+  }
 
-  // @Test
-  // public void taskShowPageDisplayDescription() {
-  //   goTo("http://localhost:4567/tasks/new");
-  //   fill("#description").with("Mow the lawn");
-  //   submit(".btn");
-  //   click("a", withText("view all tasks"));
-  //   click("a", withText("Mow the lawn"));
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
+  @Test
+  public void clientIsAddedCorrectlyTest() {
+    goTo("http://localhost:4567/");
+    fill("#newStylistName").with("Halsey");
+    submit("#newStylist");
+    fill("#newClientName").with("Hurricane");
+    submit("#newClient");
+    assertThat(pageSource()).contains("Hurricane");
+  }
+
+
 }

@@ -17,7 +17,7 @@
         <td>$stylist.getNameStylist()</td>
         <td>View Clients</td>
         <td>Edit</td>
-        <td>Delete</td>
+        <td><a href="/stylists/$stylist.getId()/delete" class="btn btn-danger btn-xs">Delete</a></td>
       </tr>
       #end
     </tbody>
@@ -30,7 +30,7 @@
       <input type="text" class="form-control" id="newStylistName" name="newStylistName" placeholder="Name">
     </div>
     &nbsp; &nbsp;
-    <button type="submit" class="btn btn-success">Add Stylist</button>
+    <button type="submit" class="btn btn-success" id="newStylist">Add Stylist</button>
   </form>
 <br><br>
 
@@ -55,7 +55,7 @@
         <td>$client.getNameClient()</td>
         <td>Stylist Name</td>
         <td>Edit</td>
-        <td>Delete</td>
+        <td><a href="/clients/$client.getId()/delete" class="btn btn-danger btn-xs">Delete</a></td>
       </tr>
       #end
     </tbody>
@@ -77,6 +77,6 @@
       </select>
     </div>
     &nbsp; &nbsp;
-    <button type="submit" class="btn btn-success">Add Client</button>
+    <button type="submit" class="btn btn-success" id="newClient">Add Client</button>
   </form>
 <br><br>
