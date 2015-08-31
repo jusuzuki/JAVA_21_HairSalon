@@ -76,5 +76,28 @@ public class Client {
     }
   }
 
+  //update client name
+  public static void updateName(int id, String newClientName) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET name_client = :name_client WHERE id=:id";
+      con.createQuery(sql)
+        .addParameter("id",id)
+        .addParameter("name_client", newClientName)
+        .executeUpdate();
+    }
+  }
+
+  //update client's stylist
+  public static void updateStylist(int id, int newStylistId) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET stylist_id = :stylist_id WHERE id=:id";
+      con.createQuery(sql)
+        .addParameter("id",id)
+        .addParameter("stylist_id", newStylistId)
+        .executeUpdate();
+    }
+  }
+
+
 
 }

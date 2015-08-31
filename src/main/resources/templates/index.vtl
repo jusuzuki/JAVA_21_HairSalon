@@ -16,7 +16,7 @@
       <tr>
         <td>$stylist.getNameStylist()</td>
         <td>View Clients</td>
-        <td>Edit</td>
+        <td><a href="/stylists/$stylist.getId()/update" class="btn btn-warning btn-xs">Edit</a></td>
         <td><a href="/stylists/$stylist.getId()/delete" class="btn btn-danger btn-xs">Delete</a></td>
       </tr>
       #end
@@ -54,7 +54,7 @@
       <tr>
         <td>$client.getNameClient()</td>
         <td>$client.stylistName($client.getStylistId())</td>
-        <td>Edit</td>
+        <td><a href="/clients/$client.getId()/update" class="btn btn-warning btn-xs">Edit</a></td>
         <td><a href="/clients/$client.getId()/delete" class="btn btn-danger btn-xs">Delete</a></td>
       </tr>
       #end

@@ -1,0 +1,23 @@
+<h3 class="well">Update information for: $client.getNameClient()</h3>
+
+<form action="/clients/$client.getId()/update" method="post" class="form-inline">
+  <div class="form-group">
+    <label for="newClientName">Edit name: &nbsp; </label>
+    <input type="text" class="form-control" id="newClientName" name="newClientName" value="$client.getNameClient()">
+  </div>
+  &nbsp; &nbsp;
+  <div class="form-group">
+    <label for="clientStylist">Stylist: &nbsp; </label>
+    <select name="clientStylist" id="clientStylist">
+      #foreach ($stylist in $stylists)
+      <option value="$stylist.getId()">$stylist.getNameStylist()</option>
+      #end
+    </select>
+  </div>
+  &nbsp; &nbsp;
+  <button type="submit" class="btn btn-success" id="newClient">Update Client</button>
+</form>
+
+<hr />
+
+<a href="/" class="btn btn-default">Return to Main Page</a>

@@ -1,0 +1,14 @@
+<h3 class="well">Update information for: $stylist.getNameStylist()</h3>
+
+<form action="/stylists/$stylist.getId()/update" method="post" class="form-inline">
+  <div class="form-group">
+    <label for="newStylistName">Edit name: &nbsp; </label>
+    <input type="text" class="form-control" id="newStylistName" name="newStylistName" placeholder="$stylist.getNameStylist()">
+  </div>
+  &nbsp; &nbsp;
+  <button type="submit" class="btn btn-success" id="newStylist">Update Stylist</button>
+</form>
+
+<hr />
+
+<a href="/" class="btn btn-default">Return to Main Page</a>

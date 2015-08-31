@@ -1,0 +1,21 @@
+<h3 class="well">List of clients that see: $stylist.getNameStylist()</h3>
+
+<table class="table table-striped">
+  <tr>
+    <thead>
+      <th>Client Name</th>
+      <th>-</th>
+      <th>-</th>
+    </thead>
+  </tr>
+  <tr>
+    <tbody>
+      #foreach ($client in $clients)
+      <tr>
+        <td>$client.getNameClient()</td>
+        <td>Edit</td>
+        <td><a href="/clients/$client.getId()/delete" class="btn btn-danger btn-xs">Delete</a></td>
+      </tr>
+      #end
+    </tbody>
+</table>
