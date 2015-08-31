@@ -12,19 +12,26 @@
     </thead>
   </tr>
     <tbody>
+      #foreach ($stylist in $stylists)
       <tr>
-        #foreach ($stylist in $stylists)
         <td>$stylist.getNameStylist()</td>
         <td>View Clients</td>
         <td>Edit</td>
         <td>Delete</td>
-        #end
       </tr>
+      #end
     </tbody>
 </table>
 
 <br>
-<a href="/" class="btn btn-success">Add a new Stylist</a>
+  <form action="/stylists/new" method="post" class="form-inline">
+    <div class="form-group">
+      <label for="newStylistName">Add New Stylist: &nbsp; </label>
+      <input type="text" class="form-control" id="newStylistName" name="newStylistName" placeholder="Name">
+    </div>
+    &nbsp; &nbsp;
+    <button type="submit" class="btn btn-success">Add Stylist</button>
+  </form>
 <br><br>
 
 <hr />
@@ -43,17 +50,33 @@
   </tr>
   <tr>
     <tbody>
+      #foreach ($client in $clients)
       <tr>
-        #foreach ($client in $clients)
         <td>$client.getNameClient()</td>
         <td>Stylist Name</td>
         <td>Edit</td>
         <td>Delete</td>
-        #end
       </tr>
+      #end
     </tbody>
 </table>
 
 <br>
-<a href="/" class="btn btn-success">Add a new Client</a>
+  <form action="/clients/new" method="post" class="form-inline">
+    <div class="form-group">
+      <label for="newClientName">Add New Client: &nbsp; </label>
+      <input type="text" class="form-control" id="newClientName" name="newClientName" placeholder="Name">
+    </div>
+    &nbsp; &nbsp;
+    <div class="form-group">
+      <label for="clientStylist">Stylist: &nbsp; </label>
+      <select name="clientStylist" id="clientStylist">
+        #foreach ($stylist in $stylists)
+        <option value="$stylist.getId()">$stylist.getNameStylist()</option>
+        #end
+      </select>
+    </div>
+    &nbsp; &nbsp;
+    <button type="submit" class="btn btn-success">Add Client</button>
+  </form>
 <br><br>
