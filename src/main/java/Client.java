@@ -98,6 +98,14 @@ public class Client {
     }
   }
 
-
+  //find all clients that belong to one stylist
+  public static List<Client> stylistsClients(int stylistId) {
+    String sql = "SELECT * FROM clients WHERE stylist_id = :stylist_id";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+      .addParameter("stylist_id", stylistId)
+      .executeAndFetch(Client.class);
+    }
+  }
 
 }

@@ -95,6 +95,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+
     //REMOVE CLIENT
     get("/clients/:id/delete", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
@@ -115,7 +116,8 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    //UPDATE STYLIST OPEN FORM:
+
+    //UPDATE STYLIST OPEN FORM
     get("/stylists/:id/update", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
@@ -129,7 +131,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    //UPDATE STYLIST POST FORM:
+    //UPDATE STYLIST POST FORM
     post("/stylists/:id/update", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
@@ -151,7 +153,7 @@ public class App {
     }, new VelocityTemplateEngine());
 
 
-    //UPDATE CLIENT OPEN FORM:
+    //UPDATE CLIENT OPEN FORM
     get("/clients/:id/update", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
@@ -168,7 +170,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    //UPDATE CLIENT POST FORM:
+    //UPDATE CLIENT POST FORM
     post("/clients/:id/update", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
@@ -192,6 +194,22 @@ public class App {
     }, new VelocityTemplateEngine());
 
 
+    //VIEW ALL CLIENTS FROM ONE STYLIST
+    get("/stylists/:id/", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+
+      //view clients by stylist
+      int stylistId = Integer.parseInt(request.params(":id"));
+      Stylist stylist = Stylist.find(stylistId);
+      model.put("stylist", stylist);
+
+      //show all clients
+      List<Client> clients = Client.stylistsClients(stylistId);
+      model.put("clients", clients);
+
+      model.put("template", "templates/stylist.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
  }
 }

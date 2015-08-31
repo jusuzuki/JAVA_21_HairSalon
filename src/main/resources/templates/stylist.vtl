@@ -13,9 +13,13 @@
       #foreach ($client in $clients)
       <tr>
         <td>$client.getNameClient()</td>
-        <td>Edit</td>
+        <td><a href="/clients/$client.getId()/update" class="btn btn-warning btn-xs">Edit</a></td>
         <td><a href="/clients/$client.getId()/delete" class="btn btn-danger btn-xs">Delete</a></td>
       </tr>
       #end
     </tbody>
 </table>
+
+<br>
+<hr />
+<a href="/" class="btn btn-default">Home</a>

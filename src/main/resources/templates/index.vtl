@@ -15,7 +15,7 @@
       #foreach ($stylist in $stylists)
       <tr>
         <td>$stylist.getNameStylist()</td>
-        <td>View Clients</td>
+        <td><a href="/stylists/$stylist.getId()/" class="btn btn-info btn-xs">View Clients</a></td>
         <td><a href="/stylists/$stylist.getId()/update" class="btn btn-warning btn-xs">Edit</a></td>
         <td><a href="/stylists/$stylist.getId()/delete" class="btn btn-danger btn-xs">Delete</a></td>
       </tr>
@@ -80,3 +80,7 @@
     <button type="submit" class="btn btn-success" id="newClient">Add Client</button>
   </form>
 <br><br>
+
+<hr />
+
+<a href="/" class="btn btn-default">Home</a>
